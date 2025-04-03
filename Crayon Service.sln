@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crayon Service", "Crayon Service\Crayon Service.csproj", "{64EA8358-8E3F-48EB-B0C8-99A4C42DA762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrayonService.Repository", "CrayonService.Repository\CrayonService.Repository.csproj", "{BDE424A7-0B8B-45D3-825B-0904B99E2555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrayonService.Queries", "CrayonService.Queries\CrayonService.Queries.csproj", "{BAFA15D1-C60C-4328-857F-F5F84183F0DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrayonService.Shared", "CrayonService.Shared\CrayonService.Shared.csproj", "{69104B37-8E52-488A-8747-A4C997D93341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCP", "CCP\CCP.csproj", "{296DB743-93DA-4C11-AF0C-3769E14B1A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrayonService.Command", "CrayonService.Command\CrayonService.Command.csproj", "{1ADAA0DC-CCBF-41C9-B900-ABB20A310A05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64EA8358-8E3F-48EB-B0C8-99A4C42DA762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64EA8358-8E3F-48EB-B0C8-99A4C42DA762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64EA8358-8E3F-48EB-B0C8-99A4C42DA762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64EA8358-8E3F-48EB-B0C8-99A4C42DA762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE424A7-0B8B-45D3-825B-0904B99E2555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE424A7-0B8B-45D3-825B-0904B99E2555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE424A7-0B8B-45D3-825B-0904B99E2555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE424A7-0B8B-45D3-825B-0904B99E2555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAFA15D1-C60C-4328-857F-F5F84183F0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFA15D1-C60C-4328-857F-F5F84183F0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFA15D1-C60C-4328-857F-F5F84183F0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFA15D1-C60C-4328-857F-F5F84183F0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69104B37-8E52-488A-8747-A4C997D93341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69104B37-8E52-488A-8747-A4C997D93341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69104B37-8E52-488A-8747-A4C997D93341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69104B37-8E52-488A-8747-A4C997D93341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{296DB743-93DA-4C11-AF0C-3769E14B1A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{296DB743-93DA-4C11-AF0C-3769E14B1A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{296DB743-93DA-4C11-AF0C-3769E14B1A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{296DB743-93DA-4C11-AF0C-3769E14B1A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ADAA0DC-CCBF-41C9-B900-ABB20A310A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ADAA0DC-CCBF-41C9-B900-ABB20A310A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ADAA0DC-CCBF-41C9-B900-ABB20A310A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ADAA0DC-CCBF-41C9-B900-ABB20A310A05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E64E31F3-C1A1-417F-AC42-A68B482A3500}
+	EndGlobalSection
+EndGlobal

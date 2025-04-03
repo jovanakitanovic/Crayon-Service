@@ -1,0 +1,6 @@
+@Crayon_Service_HostAddress = http://localhost:5009
+
+GET {{Crayon_Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

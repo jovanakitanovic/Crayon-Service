@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.11.0" />
+		<PackageReference Include="MediatR" Version="12.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\CCP\CCP.csproj" />
+	  <ProjectReference Include="..\CrayonService.Repository\CrayonService.Repository.csproj" />
+	  <ProjectReference Include="..\CrayonService.Shared\CrayonService.Shared.csproj" />
+	</ItemGroup>
+	
+</Project>
