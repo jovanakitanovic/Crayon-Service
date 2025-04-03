@@ -23,7 +23,7 @@ namespace Crayon_Service.Controllers
             return await HandleRequest(new GetAllServices.Query(), cancellationToken);
         }
 
-        [HttpPost("ListOfServices")]
+        [HttpPost("AddService")]
         [ProducesResponseType(201, Type = typeof(OrderedServiceModel))]
         public async Task<IActionResult> OrderServiceFromCCP([Required] Guid serviceId, [Required] Guid accountId, CancellationToken cancellationToken)
         {

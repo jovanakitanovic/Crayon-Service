@@ -65,21 +65,6 @@ namespace CrayonService.Repository.Repository
             }
         }
 
-        //public async Task<bool> VerifySubscriptionsForAccount(Guid accountId, Guid serviceId)
-        //{
-        //    try
-        //    {
-        //        var services = _dataContext.ServiceOrder.Any(x => x.AccountId == accountId && x.ServiceId == serviceId);
-
-        //        return services;
-        //    }
-
-        //    catch (Exception ex)
-        //    {
-        //        throw new CustomInternalServerError(ex.Message, ex);
-        //    }
-        //}
-
         public async Task<bool> VerifySubscriptionst(Guid subscriptionId, Guid accountID)
         {
             try
@@ -118,7 +103,7 @@ namespace CrayonService.Repository.Repository
             {
                 var data = _dataContext.ServiceOrder.First(x => x.ServiceSubscripitonId == subscriptionId);
 
-                data.State = 3;
+                data.State = (int)ServiceStatus.Canceled;
                 _dataContext.SaveChanges();
 
                 return data;

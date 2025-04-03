@@ -37,10 +37,6 @@ namespace CrayonService.Command
             {
 
                 var account =await _accountRepository.GetAccountById(request.AccountId);
-                //var serviceAlreadyExists =await _subscriptionsRepository.VerifySubscriptionsForAccount(request.AccountId, request.ServiceId);
-
-                //if(serviceAlreadyExists)
-                //    throw new CustomBadRequestException(Constants.AlreadyAddedService);
 
                 if (account == null)
                     throw new CustomBadRequestException(Constants.AccountIdInvalid);

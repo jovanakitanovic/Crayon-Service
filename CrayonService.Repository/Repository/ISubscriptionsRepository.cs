@@ -13,7 +13,6 @@ namespace CrayonService.Repository.Repository
     {
         public Task<Guid> InsertSubscription(Guid accountId, Guid serviceId, OrderedService service);
         public Task<List<ServiceOrder>> GetAllSubscriptionsForAccount(Guid accountId);
-        //public Task<bool> VerifySubscriptionsForAccount(Guid accountId, Guid serviceId);
         public Task<bool> VerifySubscriptionst(Guid subscriptionId, Guid accountId);
         public Task<ServiceOrder> UpdateSubscriptionQuantity(Guid subscriptionId, int quantity);
         public Task<ServiceOrder> CancelSubscription(Guid subscriptionId);
