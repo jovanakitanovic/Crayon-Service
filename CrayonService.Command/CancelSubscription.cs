@@ -22,9 +22,11 @@ namespace CrayonService.Command
         public class CommandHandler : IRequestHandler<Command, OrderedServiceModel>
         {
             private readonly ISubscriptionsRepository _subscriptionsRepository;
-            public CommandHandler(ISubscriptionsRepository subscriptionsRepository)
+            private readonly ICCPApi _ccpApi;
+            public CommandHandler(ISubscriptionsRepository subscriptionsRepository, ICCPApi ccpApi)
             {
                 _subscriptionsRepository = subscriptionsRepository;
+                _ccpApi = ccpApi;
             }
 
             public async Task<OrderedServiceModel> Handle(Command request, CancellationToken cancellationToken)
@@ -34,6 +36,11 @@ namespace CrayonService.Command
 
                 if (!subscriptionStatus)
                     throw new CustomBadRequestException(Constants.DataInvalid);
+
+                var subscriptionCanceled = await _ccpApi.CancelService(request.SubscriptionId);
+
+                if (!subscriptionCanceled)
+                    throw new CustomInternalServerError(Constants.CCPServiceUpdate);
 
                 var updatedData = await _subscriptionsRepository.CancelSubscription(request.SubscriptionId);
 

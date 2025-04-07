@@ -24,30 +24,17 @@ namespace Crayon_Service.Helpers
         protected async Task<IActionResult> HandleRequest<TResponse>(IRequest<TResponse> request,
                                                              CancellationToken cancellationToken)
         {
-            try
-            {
-                _init();
-                var result = await Mediator.Send(request, cancellationToken);
+            _init();
+            var result = await Mediator.Send(request, cancellationToken);
 
-                if (Request.Method == HttpMethod.Post.Method)
-                {
-                    return Created(string.Empty, result);
-                }
-                else
-                {
-                    return Ok(result);
-                }
-
-            }
-            catch(CustomBadRequestException ex)
+            if (Request.Method == HttpMethod.Post.Method)
             {
-                return BadRequest(ex.Message);
+                return Created(string.Empty, result);
             }
-            catch(CustomInternalServerError ex)
+            else
             {
-                return StatusCode(500, ex.Message);
+                return Ok(result);
             }
-            
         }
     }
 }

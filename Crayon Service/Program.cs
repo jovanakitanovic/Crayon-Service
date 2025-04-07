@@ -51,12 +51,13 @@ builder.Services.AddScoped<ISubscriptionsRepository, SubscriptionsRepository>();
 builder.Services.AddScoped<ICCPApi, CCPApi>();
 builder.Services.AddScoped<IListOfServices, ListOfServices>();
 builder.Services.AddScoped<IOrderServiceCCP, OrderServiceCCP>();
+builder.Services.AddScoped<ISubscriptionEditService, SubscriptionEditService>();
 
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PipelineBehavior<,>));
 
 
-
 var app = builder.Build();
+app.UseMiddleware<GlobalExceptionHandling>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

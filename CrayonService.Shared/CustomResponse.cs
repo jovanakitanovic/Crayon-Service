@@ -29,7 +29,7 @@ namespace CrayonService.Shared
 
             foreach(var message in errorMessages)
             {
-                errorMessage.Append(message+" \n");
+                errorMessage.Append(message+"\n");
             }
 
             throw new CustomBadRequestException(errorMessage.ToString());

@@ -12,5 +12,10 @@ namespace CCP
         public Task<List<Service>> GetListOfServices();
 
         public Task<OrderedService> OrderService(Guid serviceId, Guid accoutnId);
+
+        public Task<bool> CancelService(Guid serviceId);
+        public Task<bool> ExtendService(Guid serviceId, DateTime validityDate);
+        public Task<bool> UpdateServiceQuantity(Guid serviceId, int quantity);
+
     }
 }

@@ -10,11 +10,13 @@ namespace CCP
 
         private readonly IListOfServices _listOfServices;
         private readonly IOrderServiceCCP _orderService;
+        private readonly ISubscriptionEditService _subscriptionEditService;
 
-        public CCPApi(IListOfServices listOfServices, IOrderServiceCCP orderService)
+        public CCPApi(IListOfServices listOfServices, IOrderServiceCCP orderService, ISubscriptionEditService subscriptionEditService)
         {
             _listOfServices = listOfServices;
             _orderService = orderService;
+            _subscriptionEditService = subscriptionEditService;
         }
 
         public async Task<List<Service>> GetListOfServices()
@@ -86,6 +88,64 @@ namespace CCP
                 };
 
             return null;
+
+        }
+
+        public async Task<bool> CancelService(Guid serviceId)
+        {
+            try
+            {
+                var orderService = new Mock<ISubscriptionEditService>();
+
+                orderService.Setup(x => x.CancelSubscription(serviceId)).Returns(Task.FromResult(true));
+
+                var result = await orderService.Object.CancelSubscription(serviceId);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new CustomInternalServerError(ex.Message, ex);
+            }
+
+        }
+
+        public async Task<bool> ExtendService(Guid serviceId, DateTime validityDate)
+        {
+            try
+            {
+                var orderService = new Mock<ISubscriptionEditService>();
+
+                orderService.Setup(x => x.ExtendsSubscription(serviceId, validityDate)).Returns(Task.FromResult(true));
+
+                var result = await orderService.Object.ExtendsSubscription(serviceId,validityDate);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new CustomInternalServerError(ex.Message, ex);
+            }
+
+        }
+
+        public async Task<bool> UpdateServiceQuantity(Guid serviceId, int quantity)
+        {
+            try
+            {
+                var orderService = new Mock<ISubscriptionEditService>();
+
+                orderService.Setup(x => x.QuantityUpdateOnSubscription(serviceId, quantity)).Returns(Task.FromResult(true));
+
+                var result = await orderService.Object.QuantityUpdateOnSubscription(serviceId, quantity);
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                throw new CustomInternalServerError(ex.Message, ex);
+            }
 
         }
 

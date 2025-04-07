@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCP;
+using System.Reflection.Metadata;
 
 namespace CrayonService.Command
 {
@@ -21,9 +23,12 @@ namespace CrayonService.Command
         public class CommandHandler : IRequestHandler<Command, OrderedServiceModel>
         {
             private readonly ISubscriptionsRepository _subscriptionsRepository;
-            public CommandHandler(ISubscriptionsRepository subscriptionsRepository)
+            private readonly ICCPApi _ccpApi;
+
+            public CommandHandler(ISubscriptionsRepository subscriptionsRepository,ICCPApi ccpApi)
             {
                 _subscriptionsRepository = subscriptionsRepository;
+                _ccpApi = ccpApi;
             }
 
             public async Task<OrderedServiceModel> Handle(Command request, CancellationToken cancellationToken)
@@ -33,6 +38,11 @@ namespace CrayonService.Command
 
                 if (!subscriptionStatus)
                     throw new CustomBadRequestException(Constants.DataInvalid);
+
+                var subscriptionExtended = await _ccpApi.ExtendService(request.SubscriptionId, request.Details.ValiditiyDate);
+
+                if (!subscriptionExtended)
+                    throw new CustomInternalServerError(Constants.CCPServiceUpdate);
 
                 var updatedData = await _subscriptionsRepository.ExtendSubscription(request.SubscriptionId, request.Details.ValiditiyDate);
 
